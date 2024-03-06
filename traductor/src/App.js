@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./style/App.css";
+import Input from "./components/Input.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div class="card">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="card-inner">
+          <div style={{ display: "flex" }}>
+          <Input
+            mensaje={"Escribe Tu texto aqui"}
+            placeholder={"Traduciendo..."}
+          />
+
+          <Input mensaje={"Texto traducido"} placeholder={"Traducido..."} />
+        </div>
+        </div>
+
+      </div>
     </div>
   );
 }
