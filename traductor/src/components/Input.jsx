@@ -3,7 +3,7 @@ import "../style/Input.css";
 
 export default function Input(props) {
     return (
-    <div class="coolinput">
+    <div className="coolinput">
         <label for="input" class="text">
         {props.mensaje}
         </label>
@@ -13,6 +13,7 @@ export default function Input(props) {
         value={props.value}
         name="input"
         class="input"
+        readOnly={props.readOnly}
         ></input>
     </div>
         );
