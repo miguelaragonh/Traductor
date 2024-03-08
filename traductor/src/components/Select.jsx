@@ -19,10 +19,4 @@ export default function Select(props) {
   );
 }
 
-/*
-tolang="en">English (default)</a>
-        <a class="dropdown-item" href="#" tolang="it">Italian</a>
-        <a class="dropdown-item" href="#" tolang="es">Spanish</a>
-        <a class="dropdown-item" href="#" tolang="de">German</a>
 
-*/

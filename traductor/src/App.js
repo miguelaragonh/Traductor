@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./style/App.css";
 import Input from "./components/Input.jsx";
 import Dropdown from "./components/Dropdown.jsx";
@@ -6,6 +7,30 @@ import Dropdown from "./components/Dropdown.jsx";
 export default function App() {
   const [valor, setValor] = useState(null);
 
+ async function traducir() { const encodedParams = new URLSearchParams();
+    encodedParams.set('q',  document.getElementById("x").value);
+    encodedParams.set('target', document.getElementById("idiom2").value);
+    encodedParams.set('source', document.getElementById("idiom1").value);
+
+    const options = {
+      method: 'POST',
+      url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': 'a7a000da96mshf1741fb7cc81bfcp1e7423jsn9b7af44b08ab',
+        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+      },
+      data: encodedParams,
+    };
+    
+    try {
+      const response = await axios.request(options);
+      //console.log(response.data.data.translations[0].translatedText);
+      setValor(response.data.data.translations[0].translatedText);
+    } catch (error) {
+      console.error(error);
+    } 
+  }
   return (
     <div className="app">
       <div className="card">
@@ -14,7 +39,7 @@ export default function App() {
         <div className="card-inner">
           <br></br>
           <Dropdown />
-          
+
           <div style={{ display: "flex", textAlign: "center" }}>
             <Input
               mensaje={"Escribe Tu texto aqui"}
@@ -32,10 +57,7 @@ export default function App() {
             />
           </div>
           <br></br>
-          <button
-            className="cssbuttons-io"
-            onClick={() => setValor(document.getElementById("x").value)}
-          >
+          <button className="cssbuttons-io" onClick={traducir}>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

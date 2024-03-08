@@ -5,7 +5,7 @@ export default function Dropdown() {
   return (
     <div>
       <div className="paste-button">
-       <Select id={'idiom1'} />
+        <Select id={"idiom1"} />
         <div className="icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path
@@ -14,16 +14,8 @@ export default function Dropdown() {
             />
           </svg>
         </div>
-        <Select id={'idiom2'} />
+        <Select id={"idiom2"} />
       </div>
     </div>
   );
 }
-
-/*
-tolang="en">English (default)</a>
-        <a class="dropdown-item" href="#" tolang="it">Italian</a>
-        <a class="dropdown-item" href="#" tolang="es">Spanish</a>
-        <a class="dropdown-item" href="#" tolang="de">German</a>
-
-*/
