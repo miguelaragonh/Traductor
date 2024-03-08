@@ -12,13 +12,15 @@ export default function App() {
         <div className="circle"></div>
         <div className="circle"></div>
         <div className="card-inner">
+          <br></br>
           <Dropdown />
-
+          
           <div style={{ display: "flex", textAlign: "center" }}>
             <Input
               mensaje={"Escribe Tu texto aqui"}
               placeholder={"Traduciendo..."}
               readOnly={false}
+              id={"x"}
             />
 
             <Input
@@ -26,10 +28,14 @@ export default function App() {
               placeholder={"Traducido..."}
               readOnly={true}
               value={valor}
+              id={"y"}
             />
           </div>
           <br></br>
-          <button className="cssbuttons-io">
+          <button
+            className="cssbuttons-io"
+            onClick={() => setValor(document.getElementById("x").value)}
+          >
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

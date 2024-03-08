@@ -14,6 +14,7 @@ export default function Input(props) {
         name="input"
         class="input"
         readOnly={props.readOnly}
+        id={props.id}
         ></input>
     </div>
         );
