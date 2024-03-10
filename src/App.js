@@ -32,7 +32,7 @@ export default function App() {
           <br></br>
           <Dropdown />
 
-          <div style={{ display: "flex", textAlign: "center" }}>
+          <div className="inputs">
             <Input
               mensaje={"Escribe Tu texto aqui"}
               placeholder={"Traduciendo..."}
