@@ -29,6 +29,8 @@ export default function App() {
       setValor(response.data.data.translations[0].translatedText);
     } catch (error) {
       console.error(error);
+      setValor('FUERA DE SERVICIO');
+
     } 
   }
   return (
@@ -52,7 +54,7 @@ export default function App() {
               mensaje={"Texto traducido"}
               placeholder={"Traducido..."}
               readOnly={true}
-              value={valor}
+              contenido={valor}
               id={"y"}
             />
           </div>
@@ -61,7 +63,7 @@ export default function App() {
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-transform"
+                className="icon icon-tabler icon-tabler-transform"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"

@@ -4,15 +4,15 @@ import "../style/Input.css";
 export default function Input(props) {
     return (
     <div className="coolinput">
-        <label for="input" class="text">
+        <label htmlFor="input" className="text">
         {props.mensaje}
         </label>
         <input
         type="text"
         placeholder={props.placeholder}
-        value={props.value}
+        value={props.contenido}
         name="input"
-        class="input"
+        className="input"
         readOnly={props.readOnly}
         id={props.id}
         ></input>
