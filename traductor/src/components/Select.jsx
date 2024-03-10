@@ -1,22 +1,17 @@
 import "../style/Dropdown.css";
-
+import languages from "../languages.js";
 export default function Select(props) {
   return (
     <select className="button" id={props.id}>
-      <option className="option" id="top" value="es">
-        Español
-      </option>
-      <option className="option" id="middle" value="en">
-        Ingles
-      </option>
-      <option className="option" id="bottom" value="it">
-        Italiano
-      </option>
-      <option className="option" id="bottom" value="de">
-       Aleman
-      </option>
+      {languages.map((language, index) => {
+        const code = Object.keys(language)[0];
+        const name = Object.values(language)[0];
+        return (
+          <option key={index} className="option" id={code} value={code}>
+            {name}
+          </option>
+        );
+      })}
     </select>
   );
 }
-
-

@@ -7,31 +7,37 @@ import Dropdown from "./components/Dropdown.jsx";
 export default function App() {
   const [valor, setValor] = useState(null);
 
- async function traducir() { const encodedParams = new URLSearchParams();
-    encodedParams.set('q',  document.getElementById("x").value);
-    encodedParams.set('target', document.getElementById("idiom2").value);
-    encodedParams.set('source', document.getElementById("idiom1").value);
+  async function traducir() {
+   /* const encodedParams = new URLSearchParams();
+    encodedParams.set("q", document.getElementById("x").value);
+    encodedParams.set("target", document.getElementById("idiom2").value);
+    encodedParams.set("source", document.getElementById("idiom1").value);
 
     const options = {
-      method: 'POST',
-      url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+      method: "POST",
+      url: "https://google-translate1.p.rapidapi.com/language/translate/v2",
       headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Key': 'a7a000da96mshf1741fb7cc81bfcp1e7423jsn9b7af44b08ab',
-        'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+        "content-type": "application/x-www-form-urlencoded",
+        "X-RapidAPI-Key": "a7a000da96mshf1741fb7cc81bfcp1e7423jsn9b7af44b08ab",
+        "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
       },
       data: encodedParams,
-    };
+    };*/
+
+    const texto = document.getElementById("x").value;
+    const idioma1 = document.getElementById("idiom1").value;
+    const idioma2 = document.getElementById("idiom2").value;
     
     try {
-      const response = await axios.request(options);
-      //console.log(response.data.data.translations[0].translatedText);
-      setValor(response.data.data.translations[0].translatedText);
+      const response = await axios.get(`https://api.mymemory.translated.net/get?q=${texto}&langpair=${idioma1}|${idioma2}`);
+      
+      console.log(response.data.responseData.translatedText); 
+      setValor(response.data.responseData.translatedText);
     } catch (error) {
       console.error(error);
-      setValor('FUERA DE SERVICIO');
-
-    } 
+      setValor("FUERA DE SERVICIO");
+    }
+    
   }
   return (
     <div className="app">
